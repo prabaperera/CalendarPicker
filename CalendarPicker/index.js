@@ -382,6 +382,7 @@ export default class CalendarPicker extends Component {
     };
   }
 
+  
   createMonths = (props, {currentMonth, currentYear}) => {
     if (!props.scrollable) {
       return [];
