@@ -92,12 +92,21 @@ export default function Day(props) {
         dateRangeLessThanMin = true;
       }
     }
+<<<<<<< HEAD
 
     if (!allowBackwardRangeSelect && daysDiff < 0) {
       dateRangeLessThanMin = true;
     }
   }
 
+=======
+
+    if (!allowBackwardRangeSelect && daysDiff < 0) {
+      dateRangeLessThanMin = true;
+    }
+  }
+
+>>>>>>> rebase on master
   dateOutOfRange = dateIsAfterMax || dateIsBeforeMin || dateIsDisabled || dateRangeLessThanMin || dateRangeGreaterThanMax;
 
   // If date is in range let's apply styles

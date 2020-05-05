@@ -26,6 +26,7 @@ export const Utils = {
     }
     return false;
   },
+<<<<<<< HEAD
   // Test whether objects' values are different.
   // `exclusions` param ignores provided keys.
   // Returns array of keys that are different (empty array means identical).
@@ -49,4 +50,6 @@ export const Utils = {
     }
     return !!a && !!b && a.isSame(b, granularity);
   }
+=======
+>>>>>>> rebase on master
 };

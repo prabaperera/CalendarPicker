@@ -21,9 +21,17 @@ export default function MonthsHeader(props) {
 
   return (
     <View style={styles.headerWrapper}>
+<<<<<<< HEAD
       <Text style={[styles.monthsHeaderText, textStyle]}>
         { title }
       </Text>
+=======
+      <View>
+        <Text style={[styles.monthsHeaderText, textStyle]}>
+          { title }
+        </Text>
+      </View>
+>>>>>>> rebase on master
     </View>
   );
 }

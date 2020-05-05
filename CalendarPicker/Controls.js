@@ -19,10 +19,15 @@ export default function Controls(props) {
   return (
     <TouchableOpacity
       onPress={() => onPressControl()}
+<<<<<<< HEAD
       style={styles}
+=======
+      style={[styles]}
+>>>>>>> rebase on master
       disabled={disabled}
       hitSlop={{ top: 20, bottom: 20, left: 40, right: 40 }}
     >
+<<<<<<< HEAD
       <View style={{opacity: disabled ? 0 : 1}}>
         { component ||
           <Text style={[textStyles]}>
@@ -30,6 +35,15 @@ export default function Controls(props) {
           </Text>
         }
       </View>
+=======
+      { component ?
+        ( disabled ? null : component )
+        :
+        <Text style={[textStyles]}>
+          { disabled ? null : label }
+        </Text>
+      }
+>>>>>>> rebase on master
     </TouchableOpacity>
   );
 }
