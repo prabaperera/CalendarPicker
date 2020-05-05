@@ -126,14 +126,6 @@ export function makeStyles(scaler, backgroundColor, textColor, todayBackgroundCo
       justifyContent: 'center'
     },
 
-    monthLabel: {
-      fontSize: 16*scaler,
-      color: '#000',
-      marginBottom: 10*scaler,
-      width: 180*scaler,
-      textAlign: 'center'
-    },
-
     headerWrapper: {
       alignItems: 'center',
       flexDirection: 'row',
@@ -143,25 +135,21 @@ export function makeStyles(scaler, backgroundColor, textColor, todayBackgroundCo
       backgroundColor: 'rgba(0,0,0,0.0)'
     },
 
-    monthSelector: {
+    previousContainer: {
       marginBottom: 10*scaler,
+      width: 80*scaler,
+      textAlign: 'left',
+    },
+
+    nextContainer: {
+      marginBottom: 10*scaler,
+      width: 80*scaler,
+      textAlign: 'right',
+      alignItems: 'flex-end',
+    },
+
+    navButtonText: {
       fontSize: 14*scaler,
-      width: 80*scaler
-    },
-
-    prev: {
-      textAlign: 'left'
-    },
-
-    next: {
-      textAlign: 'right'
-    },
-
-    yearLabel: {
-      fontSize: 14*scaler,
-      fontWeight: 'bold',
-      color: '#000',
-      textAlign: 'center'
     },
 
     weeks: {
@@ -177,6 +165,92 @@ export function makeStyles(scaler, backgroundColor, textColor, todayBackgroundCo
       color: '#BBBBBB',
       alignSelf: 'center',
       justifyContent: 'center'
-    }
+    },
+
+    monthHeaderMainText: {
+      fontSize: 16*scaler,
+      color: '#000',
+      marginBottom: 10*scaler,
+      marginRight: 3*scaler,
+      width: 100*scaler,
+      textAlign: 'right'
+    },
+
+    monthButton: {
+      width: 30*scaler,
+      height: 30*scaler,
+      borderRadius: 30*scaler,
+      alignSelf: 'center',
+      justifyContent: 'center'
+    },
+
+    monthContainer: {
+      flex: 1,
+      alignItems: 'center',
+    },
+
+    monthText: {
+      fontSize: 14*scaler,
+      color: '#000',
+      alignSelf: 'center'
+    },
+
+    monthsWrapper: {
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+    },
+
+    monthsRow: {
+      flexDirection: 'row',
+      padding: 20*scaler,
+      justifyContent: 'space-between',
+    },
+
+    monthsHeaderText: {
+      fontSize: 16*scaler,
+      color: '#000',
+      marginBottom: 10*scaler,
+      width: 180*scaler,
+      textAlign: 'center'
+    },
+
+    yearHeaderMainText: {
+      fontSize: 16*scaler,
+      color: '#000',
+      marginBottom: 10*scaler,
+      marginLeft: 3*scaler,
+      width: 80*scaler,
+      textAlign: 'left'
+    },
+
+    yearContainer: {
+      flex: 1,
+      alignItems: 'center',
+    },
+
+    yearText: {
+      fontSize: 14*scaler,
+      color: '#000',
+      alignSelf: 'center'
+    },
+
+    yearsHeaderText: {
+      fontSize: 16*scaler,
+      color: '#000',
+      marginBottom: 10*scaler,
+      width: 180*scaler,
+      textAlign: 'center'
+    },
+
+    yearsWrapper: {
+      alignSelf: 'stretch',
+      justifyContent: 'center'
+    },
+
+    yearsRow: {
+      flexDirection: 'row',
+      padding: 20*scaler,
+    },
+
   };
 }

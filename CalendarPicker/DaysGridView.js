@@ -23,6 +23,7 @@ export default function DaysGridView(props) {
     selectedStartDate,
     selectedEndDate,
     allowRangeSelection,
+    allowBackwardRangeSelect,
     textStyle,
     todayTextStyle,
     selectedDayStyle,
@@ -38,8 +39,6 @@ export default function DaysGridView(props) {
     maxRangeDuration,
     enableDateChange
   } = props;
-
-  const today = moment();
 
   // let's get the total of days in this month, we need the year as well, since
   // leap years have different amount of days in February
@@ -82,6 +81,7 @@ export default function DaysGridView(props) {
                 selectedStartDate={selectedStartDate}
                 selectedEndDate={selectedEndDate}
                 allowRangeSelection={allowRangeSelection}
+                allowBackwardRangeSelect={allowBackwardRangeSelect}
                 minDate={minDate}
                 maxDate={maxDate}
                 disabledDates={disabledDates}
@@ -121,6 +121,7 @@ export default function DaysGridView(props) {
               selectedStartDate={selectedStartDate}
               selectedEndDate={selectedEndDate}
               allowRangeSelection={allowRangeSelection}
+              allowBackwardRangeSelect={allowBackwardRangeSelect}
               minDate={minDate}
               maxDate={maxDate}
               disabledDates={disabledDates}
@@ -145,10 +146,10 @@ export default function DaysGridView(props) {
   return (
     <View style={styles.daysWrapper}>
       { weekArray.map(weekIndexOfMonth => (
-          <View key={weekIndexOfMonth} style={styles.weekRow}>
-            { generateDatesForWeek(weekIndexOfMonth) }
-          </View>
-        ))
+        <View key={weekIndexOfMonth} style={styles.weekRow}>
+          { generateDatesForWeek(weekIndexOfMonth) }
+        </View>
+      ))
       }
     </View>
   );
@@ -179,4 +180,4 @@ DaysGridView.propTypes = {
   disabledDatesTextStyle: Text.propTypes.style,
   minRangeDuration: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
   maxRangeDuration: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
-}
+};
