@@ -7,22 +7,9 @@ import Weekdays from './Weekdays';
 import DaysGridView from './DaysGridView';
 import MonthSelector from './MonthSelector';
 import YearSelector from './YearSelector';
-<<<<<<< HEAD
 import Scroller from './Scroller';
 import moment from 'moment';
 
-=======
-import Swiper from './Swiper';
-import moment from 'moment';
-
-const SWIPE_LEFT = 'SWIPE_LEFT';
-const SWIPE_RIGHT = 'SWIPE_RIGHT';
-
-const _swipeConfig = {
-  velocityThreshold: 0.3,
-  directionalOffsetThreshold: 80
-};
->>>>>>> rebase on master
 
 export default class CalendarPicker extends Component {
   constructor(props) {
@@ -39,32 +26,11 @@ export default class CalendarPicker extends Component {
       styles: {},
       ...this.updateScaledStyles(props),
       ...this.updateMonthYear(props.initialDate),
-<<<<<<< HEAD
       ...this.updateDisabledDates(props.disabledDates),
       ...this.updateMinMaxRanges(props.minRangeDuration, props.maxRangeDuration),
       ...this.createMonths(props, {}),
     };
     this.state.renderMonthParams = this.createMonthProps(this.state);
-=======
-      ...this.updateDayOfWeekStyles(props.initialDate),
-      ...this.updateDisabledDates(props.disabledDates),
-      ...this.updateMinMaxRanges(props.minRangeDuration, props.maxRangeDuration),
-    };
-    this.updateScaledStyles = this.updateScaledStyles.bind(this);
-    this.updateMonthYear = this.updateMonthYear.bind(this);
-    this.updateDisabledDates = this.updateDisabledDates.bind(this);
-    this.updateMinMaxRanges = this.updateMinMaxRanges.bind(this);
-    this.updateDayOfWeekStyles = this.updateDayOfWeekStyles.bind(this);
-    this.handleOnPressPrevious = this.handleOnPressPrevious.bind(this);
-    this.handleOnPressNext = this.handleOnPressNext.bind(this);
-    this.handleOnPressDay = this.handleOnPressDay.bind(this);
-    this.handleOnPressMonth = this.handleOnPressMonth.bind(this);
-    this.handleOnPressYear = this.handleOnPressYear.bind(this);
-    this.handleOnSelectMonth = this.handleOnSelectMonth.bind(this);
-    this.handleOnSelectYear = this.handleOnSelectYear.bind(this);
-    this.onSwipe = this.onSwipe.bind(this);
-    this.resetSelections = this.resetSelections.bind(this);
->>>>>>> rebase on master
   }
 
   static defaultProps = {
@@ -78,7 +44,6 @@ export default class CalendarPicker extends Component {
     headingLevel: 1,
     sundayColor: '#FFFFFF',
     customDatesStyles: [],
-<<<<<<< HEAD
     previousTitle: 'Previous',
     nextTitle: 'Next',
     selectMonthTitle: 'Select Month in ',
@@ -86,18 +51,6 @@ export default class CalendarPicker extends Component {
     horizontal: true,
   };
 
-=======
-    customDatesStylesPriority: 'dayOfWeek',
-    previousTitle: 'Previous',
-    nextTitle: 'Next',
-    selectMonthTitle: 'Select Month',
-    selectYearTitle: 'Select Year',
-  };
-
-  componentDidMount() {
-  }
-
->>>>>>> rebase on master
   componentDidUpdate(prevProps) {
     let doStateUpdate = false;
 
@@ -143,7 +96,6 @@ export default class CalendarPicker extends Component {
       doStateUpdate = true;
     }
 
-<<<<<<< HEAD
     let minMaxDates = {};
     if (prevProps.minDate !== this.props.minDate ||
         prevProps.minDate !== this.props.minDate
@@ -165,30 +117,6 @@ export default class CalendarPicker extends Component {
       const _state = {...this.state, ...newState};
       renderMonthParams = this.createMonthProps(_state);
       this.setState({...newState, renderMonthParams});
-=======
-    let disabledDates = {};
-    if (prevProps.disabledDates !== this.props.disabledDates) {
-      disabledDates = this.updateDisabledDates(this.props.disabledDates);
-      doStateUpdate = true;
-    }
-
-    let rangeDurations = {};
-    if (prevProps.minRangeDuration !== this.props.minRangeDuration ||
-        prevProps.maxRangeDuration !== this.props.maxRangeDuration
-    ) {
-      const {minRangeDuration, maxRangeDuration} = this.props;
-      rangeDurations = this.updateMinMaxRanges(minRangeDuration, maxRangeDuration);
-      doStateUpdate = true;
-    }
-
-    let minDate = this.props.minDate && moment(this.props.minDate);
-    let maxDate = this.props.maxDate && moment(this.props.maxDate);
-
-    if (doStateUpdate) {
-      this.setState({ ...newStyles, ...newMonthYear, ...selectedDateRanges,
-        ...customDatesStyles, ...disabledDates, ...rangeDurations,
-        minDate, maxDate });
->>>>>>> rebase on master
     }
   }
 
@@ -206,11 +134,6 @@ export default class CalendarPicker extends Component {
     // The styles in makeStyles are intially scaled to this width
     const containerWidth = width ? width : Dimensions.get('window').width;
     const containerHeight = height ? height : Dimensions.get('window').height;
-<<<<<<< HEAD
-=======
-    const initialScale =
-      Math.min(containerWidth, containerHeight) / scaleFactor;
->>>>>>> rebase on master
     return {
       styles: makeStyles({
         containerWidth,
@@ -235,11 +158,7 @@ export default class CalendarPicker extends Component {
     return newState;
   }
 
-<<<<<<< HEAD
   updateDisabledDates = (_disabledDates = []) => {
-=======
-  updateDisabledDates(_disabledDates = []) {
->>>>>>> rebase on master
     let disabledDates = [];
     if (_disabledDates) {
       if (Array.isArray(_disabledDates)) {
@@ -256,16 +175,10 @@ export default class CalendarPicker extends Component {
     }
     return { disabledDates };
   }
-<<<<<<< HEAD
 
   updateMinMaxRanges = (_minRangeDuration, _maxRangeDuration) => {
     let minRangeDuration = [];
     let maxRangeDuration = [];
-=======
-
-  updateMinMaxRanges(_minRangeDuration, _maxRangeDuration) {
-    let minRangeDuration = [];
-    let maxRangeDuration = [];
 
     if (_minRangeDuration) {
       if (Array.isArray(_minRangeDuration)) {
@@ -295,84 +208,6 @@ export default class CalendarPicker extends Component {
       } else {
         maxRangeDuration = _maxRangeDuration;
       }
-    }
-    return {minRangeDuration, maxRangeDuration};
-  }
-
-  handleOnPressDay(day) {
-    const {
-      currentYear,
-      currentMonth,
-      selectedStartDate,
-      selectedEndDate
-    } = this.state;
-
-    const {
-      allowRangeSelection,
-      allowBackwardRangeSelect,
-      enableDateChange,
-      onDateChange,
-    } = this.props;
->>>>>>> rebase on master
-
-    if (_minRangeDuration) {
-      if (Array.isArray(_minRangeDuration)) {
-        _minRangeDuration.map(mrd => {
-          let thisDate = moment(mrd.date);
-          thisDate.set({ hour: 12, minute: 0, second: 0, millisecond: 0 });
-          minRangeDuration.push({
-            date: thisDate.valueOf(),
-            minDuration: mrd.minDuration
-          });
-        });
-      } else {
-        minRangeDuration = _minRangeDuration;
-      }
-    }
-
-<<<<<<< HEAD
-    if (_maxRangeDuration) {
-      if (Array.isArray(_maxRangeDuration)) {
-        _maxRangeDuration.map(mrd => {
-          let thisDate = moment(mrd.date);
-          thisDate.set({ hour: 12, minute: 0, second: 0, millisecond: 0 });
-          maxRangeDuration.push({
-            date: thisDate.valueOf(),
-            maxDuration: mrd.maxDuration
-          });
-        });
-      } else {
-        maxRangeDuration = _maxRangeDuration;
-      }
-=======
-    const date = moment({ year: currentYear, month: currentMonth, day, hour: 12 });
-
-    if (allowRangeSelection && selectedStartDate && !selectedEndDate) {
-      if (date.isSameOrAfter(selectedStartDate, 'day')) {
-        this.setState({
-          selectedEndDate: date
-        });
-        // propagate to parent date has changed
-        onDateChange(date, Utils.END_DATE);
-      }
-      else if (allowBackwardRangeSelect) { // date is before selectedStartDate
-        // Flip dates so that start is always before end.
-        const endDate = selectedStartDate.clone();
-        this.setState({
-          selectedStartDate: date,
-          selectedEndDate: endDate
-        });
-        onDateChange(date, Utils.START_DATE);
-        onDateChange(endDate, Utils.END_DATE);
-      }
-    } else {
-      this.setState({
-        selectedStartDate: date,
-        selectedEndDate: null
-      });
-      // propagate to parent date has changed
-      onDateChange(date, Utils.START_DATE);
->>>>>>> rebase on master
     }
     return {minRangeDuration, maxRangeDuration};
   }
@@ -421,7 +256,6 @@ export default class CalendarPicker extends Component {
           onDateChange(this.state.selectedEndDate, Utils.END_DATE);
         });
       }
-<<<<<<< HEAD
     } else {
       const syncEndDate = !!prevSelectedEndDate;
       const selectedStartDate = date;
@@ -438,29 +272,11 @@ export default class CalendarPicker extends Component {
           onDateChange(null, Utils.END_DATE);
         }
       });
-=======
-    } while (day.add(1, 'day').isSame(currentDate, 'month'));
-
-    let customDatesStyles = [];
-    if (customDatesStylesPriority === 'dayOfWeek') {
-      customDatesStyles = [...customDayOfWeekStyles, ...propsCustomDatesStyles];
-    }
-    else {
-      customDatesStyles = [...propsCustomDatesStyles, ...customDayOfWeekStyles];
->>>>>>> rebase on master
     }
   }
 
-<<<<<<< HEAD
   handleOnPressPrevious = () => {
     const { currentMonth, currentYear } = this.state;
-=======
-    return { customDatesStyles };
-  }
-
-  handleOnPressPrevious() {
-    let { currentMonth, currentYear } = this.state;
->>>>>>> rebase on master
     let previousMonth = currentMonth - 1;
     let year = currentYear;
     // if previousMonth is negative it means the current month is January,
@@ -497,15 +313,9 @@ export default class CalendarPicker extends Component {
       const renderMonthParams = {...this.state.renderMonthParams, month, year};
       this.setState({ currentMonth, currentYear, renderMonthParams });
     }
-<<<<<<< HEAD
     const currentMonthYear = moment({year, month, hour: 12});
     this.props.onMonthChange && this.props.onMonthChange(currentMonthYear);
   }
-=======
-    catch (error) {
-      console.log('dayOfWeekStyles error');
-    }
->>>>>>> rebase on master
 
   handleOnPressYear = () => {
     this.setState({
@@ -519,7 +329,6 @@ export default class CalendarPicker extends Component {
     });
   }
 
-<<<<<<< HEAD
   handleOnSelectMonthYear = ({month, year}) => {
     const currentYear = year;
     const currentMonth = month;
@@ -535,72 +344,6 @@ export default class CalendarPicker extends Component {
       currentView: 'days',
       ...scrollableState,
     });
-=======
-  handleOnPressYear() {
-    this.setState({
-      currentView: 'years'
-    });
-  }
-
-  handleOnPressMonth() {
-    this.setState({
-      currentView: 'months'
-    });
-  }
-
-  handleOnSelectMonth(month) {
-    if (!this.props.enableDateChange) {
-      return;
-    }
-    this.setState({
-      currentMonth: parseInt(month),
-      currentView: 'days'
-    });
-  }
-
-  handleOnSelectYear(year) {
-    if (!this.props.enableDateChange) {
-      return;
-    }
-
-    // Guard against navigating to months beyond min/max dates.
-    let currentMonth = this.state.currentMonth;
-    if (this.state.maxDate) {
-      const maxDateMonth = this.state.maxDate.month();
-      const maxDateYear = this.state.maxDate.year();
-      if (year === maxDateYear && currentMonth > maxDateMonth) {
-        currentMonth = maxDateMonth;
-      }
-    }
-    if (this.state.minDate) {
-      const minDateMonth = this.state.minDate.month();
-      const minDateYear = this.state.minDate.year();
-      if (year === minDateYear && currentMonth < minDateMonth) {
-        currentMonth = minDateMonth;
-      }
-    }
-
-    this.setState({
-      currentYear: parseInt(year),
-      currentMonth,
-      currentView: 'days'
-    });
-  }
-
-  onSwipe(gestureName) {
-    if (typeof this.props.onSwipe === 'function') {
-      this.props.onSwipe(gestureName);
-      return;
-    }
-    switch (gestureName) {
-    case SWIPE_LEFT:
-      this.handleOnPressNext();
-      break;
-    case SWIPE_RIGHT:
-      this.handleOnPressPrevious();
-      break;
-    }
->>>>>>> rebase on master
   }
 
   resetSelections = () => {
@@ -696,14 +439,6 @@ export default class CalendarPicker extends Component {
       currentYear,
       minDate,
       maxDate,
-<<<<<<< HEAD
-=======
-      minRangeDuration,
-      maxRangeDuration,
-      selectedStartDate,
-      selectedEndDate,
-      disabledDates,
->>>>>>> rebase on master
       styles,
       monthsList,
       renderMonthParams,
@@ -711,11 +446,6 @@ export default class CalendarPicker extends Component {
     } = this.state;
 
     const {
-<<<<<<< HEAD
-=======
-      allowRangeSelection,
-      allowBackwardRangeSelect,
->>>>>>> rebase on master
       startFromMonday,
       initialDate,
       weekdays,
@@ -727,7 +457,6 @@ export default class CalendarPicker extends Component {
       previousTitleStyle,
       nextTitleStyle,
       textStyle,
-<<<<<<< HEAD
       restrictMonthNavigation,
       headingLevel,
       dayLabelsWrapper,
@@ -742,26 +471,6 @@ export default class CalendarPicker extends Component {
 
     let content;
     switch (currentView) {
-=======
-      todayTextStyle,
-      selectedDayStyle,
-      selectedRangeStartStyle,
-      selectedRangeStyle,
-      selectedRangeEndStyle,
-      disabledDatesTextStyle,
-      swipeConfig,
-      enableDateChange,
-      restrictMonthNavigation,
-      headingLevel,
-      dayLabelsWrapper,
-      dayOfWeekStyles,
-      selectMonthTitle,
-      selectYearTitle,
-    } = this.props;
-
-    let content;
-    switch (this.state.currentView) {
->>>>>>> rebase on master
     case 'months':
       content = (
         <MonthSelector
@@ -772,14 +481,8 @@ export default class CalendarPicker extends Component {
           months={months}
           minDate={minDate}
           maxDate={maxDate}
-<<<<<<< HEAD
           onSelectMonth={this.handleOnSelectMonthYear}
           headingLevel={headingLevel}
-=======
-          onSelectMonth={this.handleOnSelectMonth}
-          headingLevel={headingLevel}
-          disabledDates={disabledDates}
->>>>>>> rebase on master
         />
       );
       break;
@@ -790,10 +493,7 @@ export default class CalendarPicker extends Component {
           textStyle={textStyle}
           title={selectYearTitle}
           initialDate={moment(initialDate)}
-<<<<<<< HEAD
           currentMonth={currentMonth}
-=======
->>>>>>> rebase on master
           currentYear={currentYear}
           minDate={minDate}
           maxDate={maxDate}
@@ -804,24 +504,14 @@ export default class CalendarPicker extends Component {
           nextTitle={nextTitle}
           previousTitleStyle={previousTitleStyle}
           nextTitleStyle={nextTitleStyle}
-<<<<<<< HEAD
           onSelectYear={this.handleOnSelectMonthYear}
           headingLevel={headingLevel}
-=======
-          onSelectYear={this.handleOnSelectYear}
-          headingLevel={headingLevel}
-          disabledDates={disabledDates}
->>>>>>> rebase on master
         />
       );
       break;
     default:
       content = (
-<<<<<<< HEAD
         <View styles={styles.calendar}>
-=======
-        <View>
->>>>>>> rebase on master
           <HeaderControls
             styles={styles}
             currentMonth={currentMonth}
@@ -843,10 +533,7 @@ export default class CalendarPicker extends Component {
             minDate={minDate}
             maxDate={maxDate}
             headingLevel={headingLevel}
-<<<<<<< HEAD
             monthYearHeaderWrapperStyle={monthYearHeaderWrapperStyle}
-=======
->>>>>>> rebase on master
           />
           <Weekdays
             styles={styles}
@@ -856,36 +543,7 @@ export default class CalendarPicker extends Component {
             weekdays={weekdays}
             textStyle={textStyle}
             dayLabelsWrapper={dayLabelsWrapper}
-<<<<<<< HEAD
             customDayHeaderStyles={customDayHeaderStyles}
-=======
-            dayOfWeekStyles={dayOfWeekStyles}
-          />
-          <DaysGridView
-            enableDateChange={enableDateChange}
-            month={currentMonth}
-            year={currentYear}
-            styles={styles}
-            onPressDay={this.handleOnPressDay}
-            disabledDates={disabledDates}
-            disabledDatesTextStyle={disabledDatesTextStyle}
-            minRangeDuration={minRangeDuration}
-            maxRangeDuration={maxRangeDuration}
-            startFromMonday={startFromMonday}
-            allowRangeSelection={allowRangeSelection}
-            allowBackwardRangeSelect={allowBackwardRangeSelect}
-            selectedStartDate={selectedStartDate}
-            selectedEndDate={selectedEndDate}
-            minDate={minDate}
-            maxDate={maxDate}
-            textStyle={textStyle}
-            todayTextStyle={todayTextStyle}
-            selectedDayStyle={selectedDayStyle}
-            selectedRangeStartStyle={selectedRangeStartStyle}
-            selectedRangeStyle={selectedRangeStyle}
-            selectedRangeEndStyle={selectedRangeEndStyle}
-            customDatesStyles={customDatesStyles}
->>>>>>> rebase on master
           />
           { scrollable ?
             <Scroller
@@ -909,19 +567,6 @@ export default class CalendarPicker extends Component {
       );
     }
 
-<<<<<<< HEAD
     return content;
-=======
-    return (
-      <Swiper
-        onSwipe={direction => this.props.enableSwipe && this.onSwipe(direction)}
-        config={{ ..._swipeConfig, ...swipeConfig }}
-      >
-        <View styles={styles.calendar}>
-          { content }
-        </View>
-      </Swiper>
-    );
->>>>>>> rebase on master
   }
 }
