@@ -23,11 +23,7 @@
     "recyclerlistview": "^3.0.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@deboxsoft/cpx": "^1.5.0",
-=======
-    "cpx": "^1.5.0",
->>>>>>> rebase on master
     "jest": "^25.1.0",
     "moment": "*",
     "react-test-renderer": "~16.12.0"

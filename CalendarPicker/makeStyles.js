@@ -151,7 +151,6 @@ export function makeStyles(params) {
       backgroundColor: 'rgba(0,0,0,0.0)'
     },
 
-<<<<<<< HEAD
     monthYearHeaderWrapper: {
       flexDirection: 'row',
       justifyContent: 'center',
@@ -165,18 +164,6 @@ export function makeStyles(params) {
 
     nextContainer: {
       marginRight: 10*scaler,
-=======
-    previousContainer: {
-      marginBottom: 10*scaler,
-      width: 80*scaler,
-      textAlign: 'left',
-    },
-
-    nextContainer: {
-      marginBottom: 10*scaler,
-      width: 80*scaler,
-      textAlign: 'right',
->>>>>>> rebase on master
       alignItems: 'flex-end',
     },
 
@@ -202,15 +189,8 @@ export function makeStyles(params) {
     monthHeaderMainText: {
       fontSize: 16*scaler,
       color: '#000',
-<<<<<<< HEAD
       textAlign: 'right',
       marginHorizontal: 3*scaler,
-=======
-      marginBottom: 10*scaler,
-      marginRight: 3*scaler,
-      width: 100*scaler,
-      textAlign: 'right'
->>>>>>> rebase on master
     },
 
     monthButton: {
@@ -221,7 +201,6 @@ export function makeStyles(params) {
       justifyContent: 'center'
     },
 
-<<<<<<< HEAD
     monthsHeaderText: {
       flex: 1,
       fontSize: 16*scaler,
@@ -229,8 +208,6 @@ export function makeStyles(params) {
       textAlign: 'center'
     },
 
-=======
->>>>>>> rebase on master
     monthContainer: {
       flex: 1,
       alignItems: 'center',
@@ -243,44 +220,20 @@ export function makeStyles(params) {
     },
 
     monthsWrapper: {
-<<<<<<< HEAD
       alignSelf: 'center',
       justifyContent: 'center',
       width: containerWidth,
-=======
-      alignSelf: 'stretch',
-      justifyContent: 'center',
->>>>>>> rebase on master
     },
 
     monthsRow: {
       flexDirection: 'row',
       padding: 20*scaler,
-<<<<<<< HEAD
-=======
-      justifyContent: 'space-between',
-    },
-
-    monthsHeaderText: {
-      fontSize: 16*scaler,
-      color: '#000',
-      marginBottom: 10*scaler,
-      width: 180*scaler,
-      textAlign: 'center'
->>>>>>> rebase on master
     },
 
     yearHeaderMainText: {
       fontSize: 16*scaler,
       color: '#000',
-<<<<<<< HEAD
       marginHorizontal: 3*scaler,
-=======
-      marginBottom: 10*scaler,
-      marginLeft: 3*scaler,
-      width: 80*scaler,
-      textAlign: 'left'
->>>>>>> rebase on master
     },
 
     yearContainer: {
@@ -297,23 +250,14 @@ export function makeStyles(params) {
     yearsHeaderText: {
       fontSize: 16*scaler,
       color: '#000',
-<<<<<<< HEAD
-=======
-      marginBottom: 10*scaler,
->>>>>>> rebase on master
       width: 180*scaler,
       textAlign: 'center'
     },
 
     yearsWrapper: {
-<<<<<<< HEAD
       alignSelf: 'center',
       justifyContent: 'center',
       width: containerWidth,
-=======
-      alignSelf: 'stretch',
-      justifyContent: 'center'
->>>>>>> rebase on master
     },
 
     yearsRow: {

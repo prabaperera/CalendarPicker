@@ -35,20 +35,12 @@ export default function Weekdays(props) {
           customDayOfWeekStyles = customDayHeaderStyles({dayOfWeek, month, year}) || {};
           dayOfWeekTextStyle.push(customDayOfWeekStyles.textStyle);
         }
-<<<<<<< HEAD
         return (
           <View style={customDayOfWeekStyles.style} key={key}>
             <Text style={dayOfWeekTextStyle}>
               {day}
             </Text>
           </View>
-=======
-
-        return (
-          <Text key={key} style={[styles.dayLabels, updatedStyle]}>
-            {day}
-          </Text>
->>>>>>> rebase on master
         );
       })
       }
@@ -59,8 +51,5 @@ export default function Weekdays(props) {
 Weekdays.propTypes = {
   startFromMonday: PropTypes.bool,
   weekdays: PropTypes.array,
-<<<<<<< HEAD
   customDayHeaderStyles: PropTypes.func,
-=======
->>>>>>> rebase on master
 };

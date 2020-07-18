@@ -13,10 +13,6 @@ export default function MonthsGridView(props) {
     textStyle,
     minDate,
     maxDate,
-<<<<<<< HEAD
-=======
-    disabledDates,
->>>>>>> rebase on master
   } = props;
   const _months = Array.from(Array(12).keys());
   const columnArray = [ 0, 1, 2 ];
@@ -35,10 +31,6 @@ export default function MonthsGridView(props) {
           onSelectMonth={onSelectMonth}
           minDate={minDate}
           maxDate={maxDate}
-<<<<<<< HEAD
-=======
-          disabledDates={disabledDates}
->>>>>>> rebase on master
           textStyle={textStyle}
         />
       );
@@ -63,8 +55,4 @@ MonthsGridView.propTypes = {
   currentYear: PropTypes.number.isRequired,
   months: PropTypes.array,
   onSelectMonth: PropTypes.func,
-<<<<<<< HEAD
-=======
-  disabledDates: PropTypes.array,
->>>>>>> rebase on master
 };

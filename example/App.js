@@ -28,16 +28,6 @@ export default class App extends Component {
       day.add(1, 'day');
     }
 
-<<<<<<< HEAD
-=======
-    let dayOfWeekStyles = {
-      5: {
-        color: '#00f',
-        fontWeight: 'bold',
-      }
-    };
-
->>>>>>> rebase on master
     this.state = {
       customDatesStyles,
       enableRangeSelect: false,
@@ -46,13 +36,6 @@ export default class App extends Component {
       minRangeDuration: "1",
       maxRangeDuration: "5",
       selectedStartDate: null,
-<<<<<<< HEAD
-=======
-      minDate,
-      maxDate: moment().add(90, 'day'),
-      customDatesStyles,
-      dayOfWeekStyles,
->>>>>>> rebase on master
     };
     this.onDateChange = this.onDateChange.bind(this);
     this.clear = this.clear.bind(this);
@@ -101,7 +84,6 @@ export default class App extends Component {
   onMaxRangeDuration(val) {
     let parsedVal = parseInt(val);
     this.setState({
-<<<<<<< HEAD
       maxRangeDuration: val && !isNaN(parsedVal) ? parsedVal + "" : undefined,
       selectedStartDate: null,
       selectedEndDate: null,
@@ -138,16 +120,6 @@ export default class App extends Component {
     const formattedStartDate = selectedStartDate ? selectedStartDate.format('YYYY-MM-DD') : '';
     const formattedEndDate = selectedEndDate ? selectedEndDate.format('YYYY-MM-DD') : '';
 
-=======
-      selectedStartDate: date,
-    });
-  }
-
-  render() {
-    const { selectedStartDate } = this.state;
-    const startDate = selectedStartDate ? selectedStartDate.format('YYYY-MM-DD') : '';
-    const initialDate = this.state.minDate;
->>>>>>> rebase on master
     return (
       <View style={styles.container}>
         <CalendarPicker
@@ -155,7 +127,6 @@ export default class App extends Component {
           selectedStartDate={selectedStartDate}
           selectedEndDate={selectedEndDate}
           onDateChange={this.onDateChange}
-<<<<<<< HEAD
           initialDate={minDate}
           customDatesStyles={customDatesStyles}
           customDayHeaderStyles={this.customDayHeaderStylesCallback}
@@ -176,17 +147,6 @@ export default class App extends Component {
 
         <View style={styles.topSpacing}>
           <Button onPress={this.clear} title="Clear Selection"/>
-=======
-          initialDate={initialDate}
-          minDate={this.state.minDate}
-  				maxDate={this.state.maxDate}
-          customDatesStyles={this.state.customDatesStyles}
-          dayOfWeekStyles={this.state.dayOfWeekStyles}
-        />
-
-        <View>
-          <Text>SELECTED DATE:  { startDate }</Text>
->>>>>>> rebase on master
         </View>
 
         <View style={styles.topSpacing}>

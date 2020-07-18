@@ -24,7 +24,6 @@ export default class MonthSelector extends Component {
       minDate,
       maxDate,
       onSelectMonth,
-<<<<<<< HEAD
     } = this.props;
 
     return (
@@ -33,17 +32,6 @@ export default class MonthSelector extends Component {
           styles={styles}
           textStyle={textStyle}
           title={title + currentYear}
-=======
-      disabledDates,
-    } = this.props;
-
-    return (
-      <View>
-        <MonthsHeader
-          styles={styles}
-          textStyle={textStyle}
-          title={title}
->>>>>>> rebase on master
           headingLevel={headingLevel}
         />
         <MonthsGridView
@@ -54,10 +42,6 @@ export default class MonthSelector extends Component {
           minDate={minDate}
           maxDate={maxDate}
           onSelectMonth={onSelectMonth}
-<<<<<<< HEAD
-=======
-          disabledDates={disabledDates}
->>>>>>> rebase on master
         />
       </View>
     );

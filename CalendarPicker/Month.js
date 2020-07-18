@@ -6,10 +6,6 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { Utils } from './Utils';
-<<<<<<< HEAD
-=======
-import moment from 'moment';
->>>>>>> rebase on master
 
 export default function Month(props) {
   const {
@@ -21,16 +17,11 @@ export default function Month(props) {
     textStyle,
     minDate,
     maxDate,
-<<<<<<< HEAD
-=======
-    disabledDates
->>>>>>> rebase on master
   } = props;
 
   const MONTHS = months || Utils.MONTHS; // English Month Array
   const monthName = MONTHS[month];
 
-<<<<<<< HEAD
   let monthOutOfRange;
   let monthIsBeforeMin = false;
   let monthIsAfterMax = false;
@@ -64,36 +55,6 @@ export default function Month(props) {
       { !monthOutOfRange ?
         <TouchableOpacity
           onPress={onSelect}>
-=======
-  const thisMonth = moment({year, month});
-
-  let dateOutOfRange;
-  let dateIsBeforeMin = false;
-  let dateIsAfterMax = false;
-  let dateIsDisabled = false;
-
-  // First let's check if date is out of range
-  // Check whether props maxDate / minDate are defined. If not supplied,
-  // don't restrict dates.
-  if (maxDate) {
-    dateIsAfterMax = thisMonth.isAfter(maxDate, 'month');
-  }
-  if (minDate) {
-    dateIsBeforeMin = thisMonth.isBefore(minDate, 'month');
-  }
-
-  if (disabledDates && disabledDates.indexOf(thisMonth.valueOf()) >= 0) {
-    dateIsDisabled = true;
-  }
-
-  dateOutOfRange = dateIsAfterMax || dateIsBeforeMin || dateIsDisabled;
-
-  return (
-    <View style={[styles.monthContainer]}>
-      { !dateOutOfRange ?
-        <TouchableOpacity
-          onPress={() => onSelectMonth(month) }>
->>>>>>> rebase on master
           <Text style={[styles.monthText, textStyle]}>
             { monthName }
           </Text>
@@ -112,8 +73,4 @@ Month.propTypes = {
   currentMonth: PropTypes.number,
   currentYear: PropTypes.number,
   onSelectMonth: PropTypes.func,
-<<<<<<< HEAD
-=======
-  disabledDates: PropTypes.array,
->>>>>>> rebase on master
 };
