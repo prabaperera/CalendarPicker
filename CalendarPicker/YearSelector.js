@@ -10,18 +10,19 @@ export default class YearSelector extends Component {
     super(props);
     this.state = {
       initialYear: props.currentYear,
+      gridSize: props.grid.column * props.grid.row,
     };
   }
 
   handleOnYearViewPrevious = () => {
     this.setState({
-      initialYear: parseInt(Math.max(this.state.initialYear - 25, 0))
+      initialYear: parseInt(Math.max(this.state.initialYear - this.state.gridSize, 0))
     });
   }
 
   handleOnYearViewNext = () => {
     this.setState({
-      initialYear: parseInt(this.state.initialYear + 25)
+      initialYear: parseInt(this.state.initialYear + this.state.gridSize)
     });
   }
 
@@ -29,12 +30,14 @@ export default class YearSelector extends Component {
     const {
       styles,
       textStyle,
+      selectedYearStyle,
       title,
       initialDate,
       currentMonth,
       currentYear,
       minDate,
       maxDate,
+      grid,
       restrictNavigation,
       previousComponent,
       nextComponent,
@@ -75,9 +78,18 @@ export default class YearSelector extends Component {
           onSelectYear={onSelectYear}
           minDate={minDate}
           maxDate={maxDate}
+          grid={grid}
           textStyle={textStyle}
+          selectedYearStyle={selectedYearStyle}
         />
       </View>
     );
   }
 }
+
+YearSelector.defaultProps = {
+      grid: {
+            column: 3,
+            row: 3,
+      },
+};

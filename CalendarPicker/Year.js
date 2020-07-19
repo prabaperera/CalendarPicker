@@ -15,6 +15,7 @@ export default function Year(props) {
     styles,
     onSelectYear,
     textStyle,
+    selectedYearStyle,
     minDate,
     maxDate,
   } = props;
@@ -49,6 +50,11 @@ export default function Year(props) {
     onSelectYear({month, year});
   };
 
+  let yearStyle = {...styles.yearText, ...textStyle }
+  if(year === currentYear){
+    yearStyle = {...yearStyle, ...selectedYearStyle}
+  }
+
   return (
     <View style={[styles.yearContainer]}>
       { !yearOutOfRange ?
@@ -66,6 +72,10 @@ export default function Year(props) {
     </View>
   );
 }
+
+Year.defaultProps = {
+  selectedYearStyle: {},
+};
 
 Year.propTypes = {
   styles: PropTypes.shape({}),

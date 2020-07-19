@@ -10,7 +10,7 @@ import { Utils } from './Utils';
 export default function Month(props) {
   const {
     months,
-    currentMonth: month,
+    currentMonth,
     currentYear: year,
     styles,
     onSelectMonth,
@@ -50,12 +50,17 @@ export default function Month(props) {
     onSelectMonth({month, year: _year});
   };
 
+  let monthStyle = {...styles.monthText, ...textStyle }
+  if(month === currentMonth){
+    monthStyle = {...monthStyle, ...selectedMonthStyle}
+  }
+
   return (
     <View style={[styles.monthContainer]}>
       { !monthOutOfRange ?
         <TouchableOpacity
           onPress={onSelect}>
-          <Text style={[styles.monthText, textStyle]}>
+          <Text style={[monthStyle]}>
             { monthName }
           </Text>
         </TouchableOpacity>
@@ -67,6 +72,10 @@ export default function Month(props) {
     </View>
   );
 }
+
+Month.defaultProps = {
+  selectedMonthStyle: {color: '#12963c'},
+};
 
 Month.propTypes = {
   styles: PropTypes.shape({}),

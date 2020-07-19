@@ -12,14 +12,27 @@ export default function YearsGridView(props) {
     styles,
     onSelectYear,
     textStyle,
+    selectedYearStyle,
     minDate,
     maxDate,
+    grid,
   } = props;
-  const guideArray = [ 0, 1, 2, 3, 4 ];
-  let year = intialYear - 13; // center current year in grid
+
+  const columnArray = [];
+  for (var i = 0; i < grid.column; i++) {
+    columnArray.push(i);
+  }
+
+  const rowArray = [];
+  for (var i = 0; i < grid.row; i++) {
+    rowArray.push(i);
+  }
+
+  //const columnArray = [ 0, 1, 2, 3, 4 ];
+  let year = intialYear - (parseInt((grid.column*grid.row)/2, 10)); // center current year in grid
 
   function generateColumns() {
-    const column = guideArray.map(() => {
+    const column = columnArray.map(() => {
       year++;
       return (
         <Year
@@ -32,6 +45,7 @@ export default function YearsGridView(props) {
           minDate={minDate}
           maxDate={maxDate}
           textStyle={textStyle}
+          selectedYearStyle={selectedYearStyle}
         />
       );
     });
@@ -39,7 +53,7 @@ export default function YearsGridView(props) {
   }
   return (
     <View style={styles.yearsWrapper}>
-      { guideArray.map(index => (
+      { rowArray.map(index => (
         <View key={year} style={styles.yearsRow}>
           { generateColumns(index) }
         </View>

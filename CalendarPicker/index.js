@@ -332,7 +332,7 @@ export default class CalendarPicker extends Component {
   handleOnSelectMonthYear = ({month, year}) => {
     const currentYear = year;
     const currentMonth = month;
-    const scrollableState = !this.props.scrollable ? {} :
+    const scrollableState = //!this.props.scrollable ? {} :
       {
         renderMonthParams: {...this.state.renderMonthParams, month, year},
         ...this.createMonths(this.props, {currentYear, currentMonth}),
@@ -457,6 +457,8 @@ export default class CalendarPicker extends Component {
       previousTitleStyle,
       nextTitleStyle,
       textStyle,
+      selectedYearStyle,
+      selectedMonthStyle,
       restrictMonthNavigation,
       headingLevel,
       dayLabelsWrapper,
@@ -476,8 +478,10 @@ export default class CalendarPicker extends Component {
         <MonthSelector
           styles={styles}
           textStyle={textStyle}
+          selectedMonthStyle={selectedMonthStyle}
           title={selectMonthTitle}
           currentYear={currentYear}
+          currentMonth={currentMonth}
           months={months}
           minDate={minDate}
           maxDate={maxDate}
@@ -491,6 +495,7 @@ export default class CalendarPicker extends Component {
         <YearSelector
           styles={styles}
           textStyle={textStyle}
+          selectedYearStyle={selectedYearStyle}
           title={selectYearTitle}
           initialDate={moment(initialDate)}
           currentMonth={currentMonth}

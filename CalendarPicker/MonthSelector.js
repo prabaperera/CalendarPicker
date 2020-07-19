@@ -20,6 +20,7 @@ export default class MonthSelector extends Component {
       title,
       headingLevel,
       currentYear,
+      currentMonth,
       months,
       minDate,
       maxDate,
@@ -38,6 +39,7 @@ export default class MonthSelector extends Component {
           styles={styles}
           textStyle={textStyle}
           currentYear={currentYear}
+          currentMonth={currentMonth}
           months={months}
           minDate={minDate}
           maxDate={maxDate}
