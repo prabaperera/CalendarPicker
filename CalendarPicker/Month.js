@@ -10,11 +10,13 @@ import { Utils } from './Utils';
 export default function Month(props) {
   const {
     months,
+    month,
     currentMonth,
     currentYear: year,
     styles,
     onSelectMonth,
     textStyle,
+    selectedMonthStyle,
     minDate,
     maxDate,
   } = props;
@@ -74,7 +76,7 @@ export default function Month(props) {
 }
 
 Month.defaultProps = {
-  selectedMonthStyle: {color: '#12963c'},
+  selectedMonthStyle: {},
 };
 
 Month.propTypes = {
