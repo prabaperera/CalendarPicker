@@ -17,6 +17,7 @@ export default class MonthSelector extends Component {
     const {
       styles,
       textStyle,
+      selectedMonthStyle,
       title,
       headingLevel,
       currentYear,
@@ -38,6 +39,7 @@ export default class MonthSelector extends Component {
         <MonthsGridView
           styles={styles}
           textStyle={textStyle}
+          selectedMonthStyle={selectedMonthStyle}
           currentYear={currentYear}
           currentMonth={currentMonth}
           months={months}

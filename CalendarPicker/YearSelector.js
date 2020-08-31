@@ -89,7 +89,7 @@ export default class YearSelector extends Component {
 
 YearSelector.defaultProps = {
       grid: {
-            column: 3,
-            row: 3,
+            column: 5,
+            row: 5,
       },
 };
